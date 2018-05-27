@@ -1,5 +1,4 @@
-# Uni
-ein Projekt der Universität initiieren
-项目：武术智能学习系统
-内容：展示
-途径：网站，小程序
+# intelligence classroom
+wxchat小程序
+项目：如澜武术智能学习系统
+内容：视频播放，利用canvas绘制智能曲线
