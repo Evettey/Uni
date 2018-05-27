@@ -1,0 +1,52 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/notify/notify",
+    "pages/intell/intell",
+    "pages/fat/fat",
+    "pages/bmi/bmi",
+    
+    "pages/chat/chat",
+    "pages/more/more",
+    "pages/answer/answer"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#0767C8",
+    "navigationBarTitleText": "如澜武术",
+    "navigationBarTextStyle":"white",
+    "enablePullDownRefresh":true
+  },
+  "tabBar": {
+    "color": "#626567",
+    "selectedColor": "#000000",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "资源",
+      "iconPath": "images/index.png",
+      "selectedIconPath": "images/index_focus.png"
+    }, {
+      "pagePath": "pages/notify/notify",
+      "text": "数据",
+      "iconPath": "images/discovery.png",
+      "selectedIconPath": "images/discovery_focus.png"
+    }, {
+      "pagePath": "pages/chat/chat",
+      "text": "消息",
+      "iconPath": "images/chat.png",
+      "selectedIconPath": "images/chat_focus.png"
+    }, {
+      "pagePath": "pages/more/more",
+      "text": "更多",
+      "iconPath": "images/burger.png",
+      "selectedIconPath": "images/burger_focus.png"
+    }]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}
