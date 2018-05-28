@@ -1,0 +1,7 @@
+<!--pages/mydata/mydata.wxml-->
+<view class="panel">
+  <view class="chart-with-img">
+    <image src="../../images/intell.jpg" bindtap="open1"><text>智能曲线</text></image>
+  </view>
+</view>
+
