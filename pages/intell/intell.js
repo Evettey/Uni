@@ -1,66 +1,77 @@
 // pages/intell/intell.js
+var wxCharts = require('../../utils/wxcharts.js');
+var app = getApp();
+var lineChart = null;
+var startPos = null;
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
+  touchHandler: function (e) {
+    lineChart.scrollStart(e);
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  moveHandler: function (e) {
+    lineChart.scroll(e);
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
+  touchEndHandler: function (e) {
+    lineChart.scrollEnd(e);
+    lineChart.showToolTip(e, {
+      format: function (item, category) {
+        return category + ' ' + item.name + ':' + item.data
+      }
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
+  createSimulationData: function () {
+    var categories = [];
+    var data = [];
+    for (var i = 0; i < 10; i++) {
+      categories.push('2018.5.' + (i + 1));
+      data.push(Math.random() * (80 - 100) + 100);
+    }
+    return {
+      categories: categories,
+      data: data
+    }
   },
+  onLoad: function (e) {
+    var windowWidth = 320;
+    try {
+      var res = wx.getSystemInfoSync();
+      windowWidth = res.windowWidth;
+    } catch (e) {
+      console.error('getSystemInfoSync failed!');
+    }
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+    var simulationData = this.createSimulationData();
+    lineChart = new wxCharts({
+      canvasId: 'lineCanvas',
+      type: 'line',
+      categories: simulationData.categories,
+      animation: false,
+      series: [{
+        name: '智能指数',
+        data: simulationData.data,
+        format: function (val, name) {
+          return val.toFixed(2) ;
+        }
+      }],
+      xAxis: {
+        disableGrid: false
+      },
+      yAxis: {
+        title: '智能指数 (满分100)',
+        format: function (val) {
+          return val.toFixed(2);
+        },
+        min: 0
+      },
+      width: windowWidth,
+      height: 200,
+      dataLabel: true,
+      dataPointShape: true,
+      enableScroll: true,
+      extra: {
+        lineStyle: 'curve'
+      }
+    });
   }
-})
+});
