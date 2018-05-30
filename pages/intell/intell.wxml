@@ -1,2 +1,5 @@
 <!--pages/intell/intell.wxml-->
-<text>pages/intell/intell.wxml</text>
+<view class="container">
+    <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler" bindtouchmove="moveHandler" bindtouchend="touchEndHandler"></canvas>
+    <view class="hint">拖动图表查看最近数据</view>
+</view>
