@@ -2,6 +2,10 @@
 <view class="panel">
   <view class="chart-with-img">
     <image src="../../images/intell.jpg" bindtap="open1"><text>智能曲线</text></image>
+    <image src="../../images/finish.jpg" bindtap="open2"><text>完成率</text></image>
+    <image src="../../images/bmi.jpg" bindtap="open3"><text>BMI指数</text></image>
   </view>
 </view>
+
+
 
