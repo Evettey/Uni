@@ -54,6 +54,16 @@ Page({
       url: '../intell/intell'
     })
   },
+  open2: function () {
+    wx.navigateTo({
+      url: '../finishrate/finishrate'
+    })
+  },
+  open3: function () {
+    wx.navigateTo({
+      url: '../bmi/bmi'
+    })
+  },
 
   /**
    * 页面上拉触底事件的处理函数
